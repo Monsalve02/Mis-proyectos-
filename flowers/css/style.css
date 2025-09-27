@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Great+Vibes&display=swap');
+*{
+    font-family: 'Playfair Display', serif;
+}
+body{
+    color: #f5f5dc;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background-attachment: fixed;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Efecto de estrellas románticas */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,215,0,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,182,193,0.8), transparent),
+        radial-gradient(2px 2px at 160px 30px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 3s linear infinite;
+    z-index: 1;
+}
+
+@keyframes sparkle {
+    from { transform: translateY(0px); }
+    to { transform: translateY(-100px); }
+}
+
+.botones{
+    border: none;
+    background: transparent;
+    padding: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+.botones:hover {
+    transform: translateY(-3px);
+}
+
+.botones a{
+    background: linear-gradient(145deg, #d4af37, #ffd700);
+    padding: 15px 30px;
+    border-radius: 50px;
+    color: #1a1a2e !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+    border: 2px solid rgba(255,215,0,0.8);
+    box-shadow: 0 8px 32px rgba(255,215,0,0.3);
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.botones a:hover{
+    background: linear-gradient(145deg, #ffd700, #ffed4e);
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(255,215,0,0.5);
+}
+
+.greetings{
+    font-size: 6rem;
+    font-weight: 700;
+    font-family: 'Great Vibes', cursive;
+    color: #ffd700;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 10;
+}
+.greetings > span{
+    animation: romanticGlow 3s ease-in-out infinite;
+    display: inline-block;
+}
+@keyframes romanticGlow{
+    0%, 100%{
+        text-shadow: 
+            0 0 10px rgba(255,215,0,0.6),
+            0 0 20px rgba(255,215,0,0.4),
+            0 0 30px rgba(255,215,0,0.2);
+        transform: translateY(0px);
+    }
+    50%{
+        text-shadow: 
+            0 0 15px rgba(255,215,0,0.8),
+            0 0 25px rgba(255,215,0,0.6),
+            0 0 35px rgba(255,215,0,0.4);
+        transform: translateY(-2px);
+    }
+}
+.greetings > span:nth-child(2){
+    animation-delay: .2s ;
+}
+.greetings > span:nth-child(3){
+    animation-delay: .4s ;
+}
+.greetings > span:nth-child(4){
+    animation-delay: .6s;
+}
+.greetings > span:nth-child(5){
+    animation-delay: .8s;
+}
+.greetings > span:nth-child(6){
+    animation-delay: 1s;
+}
+
+.description{
+    font-size: 1.3rem;
+    margin-bottom: 40px;
+    color: #ffd700;
+    font-style: italic;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 10;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7), 0 0 20px rgba(255,215,0,0.5);
+}
+
+.description span {
+    color: #ffd700;
+}
+
+@media screen and (max-width:574px){
+    .greetings{
+        display: block;
+        font-size: 3.5rem;
+        font-weight: 700;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .description{
+        font-size: 1.1rem;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+    
+    .botones {
+        padding: 3px;
+    }
+    
+    .botones a{
+        font-size: 0.9rem;
+        padding: 12px 25px;
+    }
+    
+    body::before {
+        background-size: 150px 75px;
+    }
+}
