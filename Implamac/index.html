@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IMPLAMAC – Especialistas en impermeabilización de techos, placas y machimbre con manto asfáltico. Garantía de 1 a 10 años. Bucaramanga." />
+  <title>IMPLAMAC – Impermeabilización de Techos y Placas</title>
+
+  <!-- ── Google Fonts ─────────────────────────────────────────── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ── Hoja de estilos ──────────────────────────────────────── -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ===========================================================
+       NAVBAR
+       =========================================================== -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+
+      <!-- Logo: oculto hasta que el usuario hace scroll (ver main.js) -->
+      <div class="nav-logo">IMP<span>L</span>AMAC</div>
+
+      <!-- Links de navegación -->
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto" class="nav-cta">Cotizar</a></li>
+      </ul>
+
+      <!-- Ícono hamburguesa (solo en móvil) -->
+      <div class="hamburger" id="hamburger" aria-label="Abrir menú" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+    </div>
+  </nav><!-- /navbar -->
+
+
+  <!-- ===========================================================
+       HERO
+       =========================================================== -->
+  <section id="hero">
+
+    <!-- Capas de fondo decorativas -->
+    <div class="hero-bg"></div>
+    <div class="hero-stripes"></div>
+    <div class="hero-orb"></div>
+
+    <div class="container">
+      <div class="hero-content">
+
+        <!-- Badge superior -->
+        <div class="hero-badge">Especialistas en impermeabilización</div>
+
+        <!-- Título principal — una sola línea, centrado -->
+        <h1 class="hero-title">IMP<span class="accent-letter">L</span>AMAC</h1>
+
+        <!-- Tagline -->
+        <p class="hero-tagline">
+          Protegemos tu hogar de filtraciones y goteras.<br>
+          Aplicamos manto asfáltico con calor en <strong>diferentes tipos de superficies</strong>,
+          ofreciendo soluciones duraderas con garantía de 1 a 10 años.
+        </p>
+
+        <!-- Botones de acción -->
+        <div class="hero-actions">
+          <a href="https://wa.me/573175869775?text=Hola%20IMPLAMAC%2C%20necesito%20una%20cotizaci%C3%B3n%20de%20impermeabilizaci%C3%B3n"
+             target="_blank" rel="noopener" class="btn-primary">
+            <!-- Ícono WhatsApp SVG inline -->
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="white" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            WhatsApp
+          </a>
+          <a href="#servicios" class="btn-secondary">Ver servicios</a>
+        </div>
+
+        <!-- Estadísticas (los números se animan en main.js) -->
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">25+</div>
+            <div class="stat-label">Años de experiencia</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">10</div>
+            <div class="stat-label">Años de garantía</div>
+          </div>
+        </div>
+
+      </div><!-- /hero-content -->
+    </div><!-- /container -->
+
+  </section><!-- /hero -->
+
+
+  <!-- ===========================================================
+       SERVICIOS
+       =========================================================== -->
+  <section id="servicios">
+    <div class="container">
+
+      <div class="services-header reveal">
+        <h2 class="section-title">Nuestros <span>Servicios</span></h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Soluciones completas de impermeabilización con manto asfáltico aplicado
+          con calor (soplete) en cualquier superficie.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Tarjeta 1 -->
+        <div class="service-card reveal reveal-delay-1">
+          <!-- NOTA: reemplaza el emoji por una imagen real:
+               <img src="assets/icons/placa.svg" alt="" class="service-icon"> -->
+          <div class="service-icon"><img src="Img/textura-concreto.png" alt="Placa"></div>
+          <div class="service-title">Impermeabilización de Placa</div>
+          <p class="service-desc">
+            Sellado total de placas de concreto y losas expuestas. Evitamos
+            filtraciones desde la raíz aplicando manto asfáltico bituminoso con soplete.
+          </p>
+          <span class="service-tag">Losas &amp; Concreto</span>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><img src="Img/textura-machimbre.png" alt="Machimbre"></div>
+          <div class="service-title">Machimbre &amp; Viga</div>
+          <p class="service-desc">
+            Impermeabilización de machimbre de madera y vigas expuestas, protegiéndolas
+            de la humedad y prolongando su vida útil.
+          </p>
+          <span class="service-tag">Madera &amp; Estructura</span>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon"><img src="Img/viga.png" alt="Viga-canal"></div>
+          <div class="service-title">Canales &amp; Desagüe</div>
+          <p class="service-desc">
+            Sellado y recubrimiento de canales de evacuación de agua lluvia para
+            evitar filtraciones.
+          </p>
+          <span class="service-tag">Drenaje</span>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-icon"><img src="Img/teja-eternit.png" alt="Eternit"></div>
+          <div class="service-title">Tejas de Eternit</div>
+          <p class="service-desc">
+            Impermeabilización y sellado de juntas en tejas de fibrocemento (Eternit),
+            evitando goteras y deterioro prematuro del techo.
+          </p>
+          <span class="service-tag">Fibrocemento</span>
+        </div>
+
+        <!-- Tarjeta 5 -->
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-icon"><img src="Img/termoacusttica.png" alt="Techo termoacústico"></div>
+          <div class="service-title">Techo Termoacústico</div>
+          <p class="service-desc">
+            Solución integral: impermeabilización sobre las tejas para mayor protección en 
+            tu hogar o negocio.
+          </p>
+          <span class="service-tag">Confort &amp; Aislamiento</span>
+        </div>
+
+        <!-- Tarjeta 6 -->
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-icon"><img src="Img/cañabrava.png" alt="Techo en Caña Brava"></div>
+          <div class="service-title">Techo en Caña Brava</div>
+          <p class="service-desc">
+            Impermeabilización especializada en techos de caña brava y materiales
+            naturales, conservando su estética con máxima protección.
+          </p>
+          <span class="service-tag">Material Natural</span>
+        </div>
+
+      </div><!-- /services-grid -->
+    </div><!-- /container -->
+  </section><!-- /servicios -->
+
+
+  <!-- ===========================================================
+       BANNER DE GARANTÍA
+       =========================================================== -->
+  <section id="garantia">
+    <div class="container">
+      <div class="garantia-inner">
+
+        <div class="garantia-text reveal">
+          <h2 class="section-title">
+            Trabajo con <span>Garantía</span><br>en cualquier superficie
+          </h2>
+          <p class="section-sub">
+            Cada obra queda respaldada por escrito. Usamos materiales de primera calidad
+            y técnicas profesionales para asegurar tu tranquilidad.
+          </p>
+        </div>
+
+        <div class="garantia-badge-big reveal">
+          <div class="g-num">1–10</div>
+          <div class="g-desc">Años de<br>Garantía</div>
+        </div>
+
+      </div>
+    </div>
+  </section><!-- /garantia -->
+
+
+  <!-- ===========================================================
+       SOBRE NOSOTROS
+       =========================================================== -->
+  <section id="nosotros">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Panel visual izquierdo -->
+        <div class="about-visual reveal">
+          <div class="about-geo">
+            <!-- NOTA: cuando tengas foto del equipo, reemplaza este div por:
+                 <img src="assets/img/equipo.jpg" alt="Equipo IMPLAMAC trabajando" class="about-photo"> -->
+            <div class="about-geo-inner">
+              <span class="big-number">25+</span>
+              <div class="big-label">Años de Experiencia</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Texto derecho -->
+        <div class="reveal reveal-delay-2">
+          <h2 class="section-title">Sobre <span>Nosotros</span></h2>
+          <p class="section-sub">
+            IMPLAMAC es una empresa especializada en impermeabilización de techos, placas
+            y superficies, liderada por <strong style="color: white;">Omar Monsalve</strong>,
+            técnico con amplia trayectoria en el sector de la construcción.
+          </p>
+
+          <div class="about-features">
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <p class="feature-text">
+                <strong>Técnica profesional:</strong> Aplicamos manto asfáltico bituminoso con
+                soplete (calor directo), garantizando adherencia total y durabilidad comprobada.
+              </p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <p class="feature-text">
+                <strong>Materiales de calidad:</strong> Trabajamos con mantos de primera,
+                impermeabilizantes certificados y herramientas profesionales.
+              </p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <p class="feature-text">
+                <strong>Garantía real:</strong> Cada trabajo queda respaldado con garantía
+                de 1 a 10 años según el tipo de superficie tratada.
+              </p>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <p class="feature-text">
+                <strong>Atención personalizada:</strong> Diagnóstico personalizado y cotización
+                sin compromiso directamente en tu inmueble.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /about-grid -->
+    </div><!-- /container -->
+  </section><!-- /nosotros -->
+
+
+  <!-- ===========================================================
+       GALERÍA
+       =========================================================== -->
+  <section id="galeria">
+    <div class="container">
+
+      <div class="gallery-header reveal">
+        <h2 class="section-title">Galería de <span>Trabajos</span></h2>
+        <p class="section-sub" style="margin: 0 auto;">
+          Resultados reales en diferentes tipos de superficies y techos.
+        </p>
+      </div>
+
+      <div class="gallery-grid">
+
+        <!-- Imagen destacada (ocupa 2 columnas) -->
+        <!-- NOTA: reemplaza el div interior por <img src="assets/img/galeria-1.jpg" ...> -->
+        <div class="gallery-item reveal">
+          <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(13,58,110,0.8), rgba(21,101,192,0.4)); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+            <div style="font-size: 5rem; opacity: 0.4;"><img src="Img/Placa.png" alt="Placa"></div>
+            <div style="font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--blue-light); opacity: 0.8;">Impermeabilización de placa</div>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Placa residencial — Manto asfáltico completo</div>
+          </div>
+        </div>
+
+        <!-- Imagen 2 -->
+        <div class="gallery-item reveal reveal-delay-1">
+          <div style="position: absolute; inset: 0; background: linear-gradient(145deg, rgba(10,22,40,0.8), rgba(13,58,110,0.6)); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.8rem;">
+            <div style="font-size: 3.5rem; opacity: 0.35;"><img src="Img/machimbre.png" alt="Machimbre"></div>
+            <div style="font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--blue-light); opacity: 0.7;">Machimbre</div>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Machimbre — Protección integral</div>
+          </div>
+        </div>
+
+        <!-- Imagen 3 -->
+        <div class="gallery-item reveal reveal-delay-2">
+          <div style="position: absolute; inset: 0; background: linear-gradient(145deg, rgba(21,101,192,0.4), rgba(10,22,40,0.85)); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.8rem;">
+            <div style="font-size: 3.5rem; opacity: 0.35;"><img src="Img/eternit.png" alt="Eternit"></div>
+            <div style="font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--blue-light); opacity: 0.7;">Eternit</div>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Tejas Eternit — Sellado de juntas</div>
+          </div>
+        </div>
+
+        <!-- Imagen 4 -->
+        <div class="gallery-item reveal reveal-delay-1">
+          <div style="position: absolute; inset: 0; background: linear-gradient(145deg, rgba(10,22,40,0.85), rgba(13,58,110,0.5)); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.8rem;">
+            <div style="font-size: 3.5rem; opacity: 0.35;"><img src="Img/Viga-canal.png" alt="Viga-canal"></div>
+            <div style="font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--blue-light); opacity: 0.7;">Canal</div>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Canal de desagüe — Impermeabilización</div>
+          </div>
+        </div>
+
+        <!-- Imagen 5 -->
+        <div class="gallery-item reveal reveal-delay-2">
+          <div style="position: absolute; inset: 0; background: linear-gradient(145deg, rgba(0,176,255,0.15), rgba(10,22,40,0.88)); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.8rem;">
+            <div style="font-size: 3.5rem; opacity: 0.35;"><img src="Img/caña-brava.png" alt="Caña Brava"></div>
+            <div style="font-family: var(--font-display); font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--blue-light); opacity: 0.7;">Caña Brava</div>
+          </div>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">Caña brava — Techo natural impermeabilizado</div>
+          </div>
+        </div>
+
+        <!-- CTA: ver más trabajos por WhatsApp -->
+        <div class="gallery-item gallery-cta-item reveal reveal-delay-3"
+             onclick="window.open('https://wa.me/573175869775?text=Hola%2C%20quiero%20ver%20m%C3%A1s%20trabajos%20de%20IMPLAMAC','_blank')"
+             role="button" tabindex="0">
+          <div style="font-size: 2.5rem;">📲</div>
+          <div class="cta-label">Ver más trabajos</div>
+          <div style="font-size: 0.8rem; color: var(--blue-light); margin-top: 0.3rem;">Escríbenos por WhatsApp</div>
+        </div>
+
+      </div><!-- /gallery-grid -->
+    </div><!-- /container -->
+  </section><!-- /galeria -->
+
+
+  <!-- ===========================================================
+       CONTACTO
+       =========================================================== -->
+  <section id="contacto">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Columna izquierda: información -->
+        <div class="reveal">
+          <h2 class="section-title">¿Tienes <span>goteras</span>?<br>Contáctanos</h2>
+          <p class="section-sub">
+            Omar Monsalve y su equipo están disponibles para visitar tu inmueble,
+            diagnosticar el problema y darte una cotización sin costo.
+          </p>
+
+          <!-- Teléfono -->
+          <a href="tel:+573175869775" class="contact-card">
+            <div class="contact-card-icon">📞</div>
+            <div class="contact-card-body">
+              <div class="contact-card-label">Celular / WhatsApp</div>
+              <div class="contact-card-value">317 586 9775</div>
+            </div>
+          </a>
+
+          <!-- Responsable -->
+          <div class="contact-card">
+            <div class="contact-card-icon">👷</div>
+            <div class="contact-card-body">
+              <div class="contact-card-label">Responsable</div>
+              <div class="contact-card-value">Omar Monsalve</div>
+            </div>
+          </div>
+
+          <!-- Horario -->
+          <div class="contact-card">
+            <div class="contact-card-icon">🕐</div>
+            <div class="contact-card-body">
+              <div class="contact-card-label">Atención</div>
+              <div class="contact-card-value">Lunes a sábado · 7am – 6pm</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Columna derecha: CTA WhatsApp -->
+        <div class="reveal reveal-delay-2">
+          <div class="wa-cta-box">
+            <h3 class="section-title"><span>Cotiza</span><br>por WhatsApp</h3>
+            <p class="section-sub">
+              Cuéntanos el tipo de techo o superficie que necesita impermeabilización
+              y te respondemos de inmediato.
+            </p>
+
+            <a href="https://wa.me/573175869775?text=Hola%20Omar%2C%20necesito%20una%20cotizaci%C3%B3n%20de%20impermeabilizaci%C3%B3n%20para%20mi%20propiedad."
+               target="_blank" rel="noopener" class="btn-wa">
+              <svg class="wa-logo" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+              </svg>
+              Escribir ahora
+            </a>
+
+            <!-- Mini checklist -->
+            <div class="checklist">
+              <div class="checklist-item">
+                <span class="checklist-check">✓</span> Diagnóstico en sitio
+              </div>
+              <div class="checklist-item">
+                <span class="checklist-check">✓</span> Presupuesto sin compromiso
+              </div>
+              <div class="checklist-item">
+                <span class="checklist-check">✓</span> Garantía de 1 a 10 años por escrito
+              </div>
+              <div class="checklist-item">
+                <span class="checklist-check">✓</span> Atención en Bucaramanga y área metro
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div><!-- /contact-grid -->
+    </div><!-- /container -->
+  </section><!-- /contacto -->
+
+
+  <!-- ===========================================================
+       FOOTER
+       =========================================================== -->
+  <footer>
+    <div class="container">
+
+      <div class="footer-inner">
+
+        <!-- Marca y descripción -->
+        <div>
+          <div class="footer-brand-name">IMP<span>L</span>AMAC</div>
+          <p class="footer-desc">
+            Especialistas en impermeabilización de techos, placas, machimbre y canales
+            con manto asfáltico. Trabajo garantizado en cualquier superficie.
+          </p>
+        </div>
+
+        <!-- Links de servicios -->
+        <div>
+          <div class="footer-col-title">Servicios</div>
+          <ul class="footer-links">
+            <li><a href="#servicios">Impermeabilización de placa</a></li>
+            <li><a href="#servicios">Machimbre y vigas</a></li>
+            <li><a href="#servicios">Canales y desagüe</a></li>
+            <li><a href="#servicios">Tejas Eternit</a></li>
+            <li><a href="#servicios">Techo termoacústico</a></li>
+          </ul>
+        </div>
+
+        <!-- Links de contacto -->
+        <div>
+          <div class="footer-col-title">Contacto</div>
+          <ul class="footer-links">
+            <li><a href="tel:+573175869775">317 586 9775</a></li>
+            <li><a href="https://wa.me/573175869775" target="_blank">WhatsApp</a></li>
+            <li><a href="#nosotros">Omar Monsalve</a></li>
+            <li><a href="#contacto">Bucaramanga, Col.</a></li>
+          </ul>
+        </div>
+
+      </div><!-- /footer-inner -->
+
+      <!-- Pie de página: copyright + redes sociales -->
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 IMPLAMAC · Todos los derechos reservados</div>
+        <div class="footer-socials">
+
+          <!-- WhatsApp -->
+          <a href="https://wa.me/573175869775" target="_blank" class="social-btn" title="WhatsApp">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+          </a>
+
+          <!-- Facebook (actualiza el href cuando tengas la página) -->
+          <a href="https://web.facebook.com/fransiscopla" class="social-btn" title="Facebook">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /container -->
+  </footer><!-- /footer -->
+
+
+  <!-- ===========================================================
+       BOTÓN FLOTANTE DE WHATSAPP
+       =========================================================== -->
+  <a id="wa-float"
+     href="https://wa.me/573175869775?text=Hola%20IMPLAMAC%2C%20necesito%20cotizar%20impermeabilizaci%C3%B3n"
+     target="_blank" rel="noopener"
+     aria-label="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+    </svg>
+  </a>
+
+
+  <!-- ── Script principal (siempre al final del body) ────────── -->
+  <script src="js/main.js"></script>
+
+</body>
+</html>

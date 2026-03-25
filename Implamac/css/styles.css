@@ -1,0 +1,1212 @@
+/* ================================================================
+   IMPLAMAC – Hoja de estilos principal
+   Archivo: css/styles.css
+   ================================================================
+   Índice:
+   1.  Variables CSS (colores, fuentes, sombras)
+   2.  Reset & Base
+   3.  Utilidades (container, section-title, section-sub)
+   4.  Navbar
+   5.  Hero
+   6.  Servicios
+   7.  Sobre nosotros
+   8.  Banner de garantía
+   9.  Galería
+   10. Contacto
+   11. Footer
+   12. Botón flotante de WhatsApp
+   13. Animaciones
+   14. Responsive
+   ================================================================ */
+
+
+/* ----------------------------------------------------------------
+   1. VARIABLES CSS
+   ---------------------------------------------------------------- */
+:root {
+  /* Paleta de colores (basada en la tarjeta IMPLAMAC) */
+  --blue-deep:   #0a1628;
+  --blue-mid:    #0d3a6e;
+  --blue-bright: #1565c0;
+  --blue-sky:    #2196f3;
+  --blue-light:  #64b5f6;
+  --accent:      #00b0ff;
+  --accent-glow: #00d4ff;
+  --white:       #ffffff;
+  --off-white:   #e8f4fd;
+  --grey-light:  #b0bec5;
+  --grey-mid:    #546e7a;
+  --whatsapp:    #25d366;
+  --whatsapp-d:  #1da851;
+
+  /* Tipografía */
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body:    'Barlow', sans-serif;
+
+  /* Sombras y utilidades */
+  --shadow-blue: 0 8px 40px rgba(21, 101, 192, 0.4);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.35);
+  --radius:      12px;
+  --transition:  0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* ----------------------------------------------------------------
+   2. RESET & BASE
+   ---------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--blue-deep);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* ----------------------------------------------------------------
+   3. UTILIDADES
+   ---------------------------------------------------------------- */
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.1;
+}
+
+/* Palabra de acento dentro de títulos */
+.section-title span {
+  color: var(--accent);
+}
+
+.section-sub {
+  font-size: 1.05rem;
+  color: var(--blue-light);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-top: 0.6rem;
+}
+
+
+/* ----------------------------------------------------------------
+   4. NAVBAR
+   ---------------------------------------------------------------- */
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0.9rem 0;
+  transition: background var(--transition), backdrop-filter var(--transition);
+}
+
+/* Fondo semitransparente al hacer scroll */
+#navbar.scrolled {
+  background: rgba(10, 22, 40, 0.92);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(100, 181, 246, 0.15);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo: oculto hasta que el usuario hace scroll */
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 0 20px rgba(0, 176, 255, 0.6);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity var(--transition), transform var(--transition);
+}
+
+.nav-logo span {
+  color: var(--accent);
+}
+
+/* El logo aparece cuando el navbar tiene la clase .scrolled */
+#navbar.scrolled .nav-logo {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  transition: color var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Botón "Cotizar" en el navbar */
+.nav-cta {
+  background: var(--accent);
+  color: var(--blue-deep) !important;
+  padding: 0.45rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700 !important;
+  transition: background var(--transition), transform var(--transition) !important;
+}
+
+.nav-cta:hover {
+  background: var(--accent-glow) !important;
+  transform: scale(1.05);
+}
+
+/* Icono de hamburguesa (solo en móvil) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 26px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+
+/* ----------------------------------------------------------------
+   5. HERO
+   ---------------------------------------------------------------- */
+#hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Fondo con gradiente de malla animado */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 50%, rgba(13, 58, 110, 0.9) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 80% at 80% 20%, rgba(21, 101, 192, 0.5) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 70% 80%, rgba(0, 176, 255, 0.15) 0%, transparent 60%),
+    linear-gradient(160deg, #0a1628 0%, #0d3a6e 50%, #0a1628 100%);
+  z-index: 0;
+}
+
+/* Rayas diagonales decorativas sobre el fondo */
+.hero-stripes {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent,
+    transparent 60px,
+    rgba(255, 255, 255, 0.018) 60px,
+    rgba(255, 255, 255, 0.018) 61px
+  );
+  z-index: 1;
+}
+
+/* Orbe brillante en la esquina derecha */
+.hero-orb {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(0, 176, 255, 0.18) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
+  animation: orbPulse 4s ease-in-out infinite;
+}
+
+@keyframes orbPulse {
+  0%, 100% { transform: translateY(-50%) scale(1);    opacity: 0.7; }
+  50%       { transform: translateY(-50%) scale(1.08); opacity: 1;   }
+}
+
+/* Contenedor principal del hero — centrado */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Badge "Especialistas en impermeabilización" */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 176, 255, 0.12);
+  border: 1px solid rgba(0, 176, 255, 0.3);
+  border-radius: 50px;
+  padding: 0.35rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  animation: fadeSlideDown 0.7s ease both;
+}
+
+/* Punto luminoso antes del badge */
+.hero-badge::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* Título principal — una sola línea, tamaño fluido */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 14vw, 11rem);
+  font-weight: 900;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  animation: fadeSlideDown 0.7s 0.15s ease both;
+}
+
+/* Letra L en azul acento */
+.hero-title .accent-letter {
+  color: var(--accent);
+  text-shadow: 0 0 40px rgba(0, 176, 255, 0.5);
+}
+
+.hero-tagline {
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  color: var(--blue-light);
+  line-height: 1.65;
+  margin: 1.4rem 0 2.4rem;
+  font-weight: 400;
+  max-width: 600px;
+  animation: fadeSlideDown 0.7s 0.3s ease both;
+}
+
+/* Botones del hero */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  animation: fadeSlideDown 0.7s 0.45s ease both;
+}
+
+/* Botón primario (gradiente azul) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, var(--blue-bright), var(--accent));
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  box-shadow: var(--shadow-blue);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(0, 176, 255, 0.45);
+}
+
+/* Botón secundario (contorno) */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent);
+  background: rgba(0, 176, 255, 0.08);
+  transform: translateY(-3px);
+}
+
+/* Barra de estadísticas debajo del hero */
+.hero-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 4rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  justify-content: center;
+  animation: fadeSlideDown 0.7s 0.6s ease both;
+}
+
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--grey-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.2rem;
+}
+
+/* Indicador de scroll al fondo del hero */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 2;
+  animation: fadeSlideDown 1s 1s ease both;
+}
+
+.scroll-indicator span {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--grey-mid);
+}
+
+.scroll-line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  animation: scrollAnim 1.8s ease infinite;
+}
+
+@keyframes scrollAnim {
+  0%   { transform: scaleY(0); transform-origin: top;    opacity: 0; }
+  50%  { transform: scaleY(1); transform-origin: top;    opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+
+/* ----------------------------------------------------------------
+   6. SERVICIOS
+   ---------------------------------------------------------------- */
+#servicios {
+  padding: 7rem 0;
+  position: relative;
+}
+
+/* Línea decorativa superior */
+#servicios::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 176, 255, 0.4), transparent);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(13, 58, 110, 0.6), rgba(10, 22, 40, 0.8));
+  border: 1px solid rgba(100, 181, 246, 0.15);
+  border-radius: var(--radius);
+  padding: 2.2rem 2rem;
+  overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+  cursor: default;
+}
+
+/* Barra de acento superior (aparece al hover) */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-bright), var(--accent));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(0, 176, 255, 0.35);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 176, 255, 0.1);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Ícono de cada servicio */
+.service-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, rgba(21, 101, 192, 0.4), rgba(0, 176, 255, 0.2));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.4rem;
+  border: 1px solid rgba(0, 176, 255, 0.2);
+}
+
+/* NOTE: Para agregar imágenes reales como íconos de servicio, usa:
+   <img src="assets/icons/placa.svg" alt="Impermeabilización de placa" class="service-icon-img">
+   y agrega en esta sección:
+   .service-icon-img { width: 40px; height: 40px; object-fit: contain; }
+*/
+
+.service-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.7rem;
+  color: var(--white);
+}
+
+.service-desc {
+  font-size: 0.92rem;
+  color: var(--grey-light);
+  line-height: 1.65;
+}
+
+.service-tag {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.3rem 0.85rem;
+  background: rgba(0, 176, 255, 0.1);
+  border: 1px solid rgba(0, 176, 255, 0.2);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+
+/* ----------------------------------------------------------------
+   7. SOBRE NOSOTROS
+   ---------------------------------------------------------------- */
+#nosotros {
+  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-visual {
+  position: relative;
+}
+
+/* Panel visual izquierdo — reemplazar con una foto real cuando esté disponible */
+.about-geo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--blue-mid), var(--blue-deep));
+  border: 1px solid rgba(100, 181, 246, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* NOTE: Para agregar una foto real, reemplaza el div .about-geo-inner por:
+   <img src="assets/img/equipo.jpg" alt="Equipo IMPLAMAC" class="about-photo">
+   y agrega:
+   .about-photo { width: 100%; height: 100%; object-fit: cover; }
+*/
+
+.about-geo-inner {
+  text-align: center;
+  padding: 2rem;
+}
+
+.big-number {
+  font-family: var(--font-display);
+  font-size: 7rem;
+  font-weight: 900;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 2px rgba(0, 176, 255, 0.5);
+  display: block;
+}
+
+.big-label {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--blue-light);
+  margin-top: 0.5rem;
+}
+
+/* Insignia flotante "500+ techos protegidos" */
+.float-badge {
+  position: absolute;
+  bottom: -1.2rem;
+  right: -1.2rem;
+  background: linear-gradient(135deg, var(--blue-bright), var(--accent));
+  border-radius: 14px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: var(--shadow-blue);
+}
+
+.float-badge-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+}
+
+.float-badge-txt {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* Lista de características */
+.about-features {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.feature-dot {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin-top: 0.45rem;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.feature-text {
+  font-size: 0.95rem;
+  color: var(--grey-light);
+  line-height: 1.55;
+}
+
+.feature-text strong {
+  color: var(--white);
+  font-weight: 600;
+}
+
+
+/* ----------------------------------------------------------------
+   8. BANNER DE GARANTÍA
+   ---------------------------------------------------------------- */
+#garantia {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, rgba(21, 101, 192, 0.3), rgba(0, 176, 255, 0.1));
+  border-top: 1px solid rgba(0, 176, 255, 0.15);
+  border-bottom: 1px solid rgba(0, 176, 255, 0.15);
+}
+
+.garantia-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.garantia-text .section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+}
+
+.garantia-badge-big {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--blue-bright), var(--accent));
+  padding: 1.5rem 2.5rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow-blue);
+}
+
+.garantia-badge-big .g-num {
+  font-family: var(--font-display);
+  font-size: 4.5rem;
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1;
+}
+
+.garantia-badge-big .g-desc {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.3;
+}
+
+
+/* ----------------------------------------------------------------
+   9. GALERÍA
+   ---------------------------------------------------------------- */
+#galeria {
+  padding: 7rem 0;
+}
+
+.gallery-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+/* Grid asimétrico: primera imagen ocupa 2 columnas */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: linear-gradient(145deg, rgba(13, 58, 110, 0.7), rgba(10, 22, 40, 0.9));
+  border: 1px solid rgba(100, 181, 246, 0.15);
+  aspect-ratio: 4/3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition), border-color var(--transition);
+}
+
+/* Imagen destacada: ocupa las dos primeras columnas */
+.gallery-item:first-child {
+  grid-column: 1 / 3;
+  aspect-ratio: 16/9;
+}
+
+/* NOTE: Para agregar imágenes reales de trabajos:
+   <div class="gallery-item">
+     <img src="assets/img/trabajo-1.jpg" alt="Impermeabilización de placa" class="gallery-img">
+     <div class="gallery-overlay">...</div>
+   </div>
+   y agrega en el CSS:
+   .gallery-img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+*/
+
+/* Overlay con caption al hacer hover */
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 22, 40, 0.9) 0%, transparent 60%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.2rem;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-item:hover {
+  border-color: rgba(0, 176, 255, 0.3);
+  transform: scale(1.02);
+  z-index: 1;
+}
+
+.gallery-caption {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+
+/* Último item: CTA para ver más trabajos */
+.gallery-cta-item {
+  background: linear-gradient(135deg, rgba(21, 101, 192, 0.5), rgba(0, 176, 255, 0.2));
+  flex-direction: column;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.gallery-cta-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 30px rgba(0, 176, 255, 0.2);
+}
+
+.gallery-cta-item .cta-label {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+
+/* ----------------------------------------------------------------
+   10. CONTACTO
+   ---------------------------------------------------------------- */
+#contacto {
+  padding: 7rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradiente radial de fondo */
+#contacto::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 60% at 50% 0%, rgba(21, 101, 192, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* Tarjeta de información de contacto */
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  background: linear-gradient(145deg, rgba(13, 58, 110, 0.5), rgba(10, 22, 40, 0.7));
+  border: 1px solid rgba(100, 181, 246, 0.15);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.6rem;
+  margin-top: 1.2rem;
+  transition: border-color var(--transition), transform var(--transition);
+}
+
+.contact-card:hover {
+  border-color: rgba(0, 176, 255, 0.3);
+  transform: translateX(6px);
+}
+
+.contact-card-icon {
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, rgba(21, 101, 192, 0.4), rgba(0, 176, 255, 0.2));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.contact-card-label {
+  font-size: 0.7rem;
+  color: var(--grey-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.contact-card-value {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 0.1rem;
+}
+
+/* Caja CTA de WhatsApp */
+.wa-cta-box {
+  background: linear-gradient(145deg, rgba(13, 58, 110, 0.5), rgba(10, 22, 40, 0.7));
+  border: 1px solid rgba(100, 181, 246, 0.15);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+}
+
+.wa-cta-box .section-title { font-size: 1.8rem; }
+.wa-cta-box .section-sub   { font-size: 0.9rem; margin-bottom: 1.8rem; }
+
+/* Botón de WhatsApp verde */
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  background: var(--whatsapp);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1rem 2.2rem;
+  border-radius: 50px;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.3);
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-wa:hover {
+  background: var(--whatsapp-d);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(37, 211, 102, 0.45);
+}
+
+.wa-logo {
+  width: 26px;
+  height: 26px;
+  fill: white;
+}
+
+/* Mini checklist dentro del CTA box */
+.checklist {
+  margin-top: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.88rem;
+  color: var(--grey-light);
+}
+
+.checklist-check {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+
+/* ----------------------------------------------------------------
+   11. FOOTER
+   ---------------------------------------------------------------- */
+footer {
+  background: rgba(5, 13, 24, 0.95);
+  border-top: 1px solid rgba(100, 181, 246, 0.1);
+  padding: 3rem 0 1.5rem;
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 0 20px rgba(0, 176, 255, 0.4);
+  margin-bottom: 0.8rem;
+}
+
+.footer-brand-name span {
+  color: var(--accent);
+}
+
+.footer-desc {
+  font-size: 0.88rem;
+  color: var(--grey-mid);
+  line-height: 1.65;
+  max-width: 280px;
+}
+
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey-light);
+  margin-bottom: 1.2rem;
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links a {
+  font-size: 0.88rem;
+  color: var(--grey-mid);
+  transition: color var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: var(--grey-mid);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.social-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(100, 181, 246, 0.1);
+  border: 1px solid rgba(100, 181, 246, 0.15);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+
+.social-btn:hover {
+  background: rgba(0, 176, 255, 0.15);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+
+/* ----------------------------------------------------------------
+   12. BOTÓN FLOTANTE DE WHATSAPP
+   ---------------------------------------------------------------- */
+#wa-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  background: var(--whatsapp);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  cursor: pointer;
+  transition: transform var(--transition), box-shadow var(--transition);
+  animation: waPulse 2.5s ease infinite;
+}
+
+#wa-float:hover {
+  transform: scale(1.12);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.65);
+  animation: none;
+}
+
+#wa-float svg {
+  width: 30px;
+  height: 30px;
+  fill: white;
+}
+
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5); }
+  50%       { box-shadow: 0 4px 35px rgba(37, 211, 102, 0.8), 0 0 0 12px rgba(37, 211, 102, 0.08); }
+}
+
+
+/* ----------------------------------------------------------------
+   13. ANIMACIONES
+   ---------------------------------------------------------------- */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Clases para el reveal al hacer scroll (activadas con JS) */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delays escalonados para animar tarjetas en secuencia */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+
+/* ----------------------------------------------------------------
+   14. RESPONSIVE
+   ---------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .about-grid             { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-grid           { grid-template-columns: 1fr; gap: 2.5rem; }
+  .footer-inner           { grid-template-columns: 1fr 1fr; }
+  .gallery-grid           { grid-template-columns: 1fr 1fr; }
+  .gallery-item:first-child { grid-column: 1 / 3; }
+}
+
+/* Móvil */
+@media (max-width: 680px) {
+  /* Ocultar links de nav, mostrar hamburguesa */
+  .nav-links  { display: none; }
+  .hamburger  { display: flex; }
+
+  /* Menú desplegable móvil */
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10, 22, 40, 0.97);
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid rgba(0, 176, 255, 0.15);
+  }
+
+  .hero-stats               { gap: 1.5rem; flex-wrap: wrap; }
+  .gallery-grid             { grid-template-columns: 1fr; }
+  .gallery-item:first-child { grid-column: 1; aspect-ratio: 4/3; }
+  .footer-inner             { grid-template-columns: 1fr; gap: 2rem; }
+  .garantia-inner           { flex-direction: column; text-align: center; }
+}
