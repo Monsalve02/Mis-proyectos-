@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>anniversary_system.exe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Pantalla de inicio: necesaria para desbloquear AudioContext en navegadores -->
+  <div id="start-overlay" tabindex="0">
+    <div class="start-box">
+      <div class="start-title">ANNIVERSARY_SYSTEM</div>
+      <div class="start-version">v1.0 — LOADING COMPLETE</div>
+      <div class="start-prompt">[ PRESS ANY KEY OR CLICK TO BEGIN ]</div>
+      <span class="cursor"></span>
+    </div>
+  </div>
+
+  <div id="terminal">
+    <div class="header">
+      <div class="header-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div class="header-title">ANNIVERSARY_SYSTEM v1.0 &mdash; SESSION ACTIVE</div>
+    </div>
+    <div id="output"></div>
+    <div id="cursor-end"><span class="cursor"></span></div>
+  </div>
+
+  <audio id="bgMusic" loop>
+    <source src="Mac demarco - My kind of woman.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="ascii.js"></script>
+  <script src="sound.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+/* ============================================================
+   ANNIVERSARY_SYSTEM — style.css
+   Estética: terminal retro, CRT, fósforo verde, pixel art
+   ============================================================ */
+
+/* ── Fuentes con fallback si no hay internet ── */
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
+/* ── Variables globales ── */
+:root {
+  --green:       #00ff41;
+  --green-dim:   #00c032;
+  --green-dark:  #003a0f;
+  --cyan:        #00ffaa;
+  --red-err:     #ff4444;
+  --final-color: #aaffcc;
+  --bg:          #0a0a0a;
+  --scanline:    rgba(0, 0, 0, 0.35);
+  --font-mono:   'Share Tech Mono', 'Courier New', monospace;
+  --font-retro:  'VT323', 'Courier New', monospace;
+}
+
+/* ── Reset base ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  background: var(--bg);
+  color: var(--green);
+  font-family: var(--font-mono);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ── Efecto scanlines CRT ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    var(--scanline) 2px,
+    var(--scanline) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+  animation: scanMove 8s linear infinite;
+}
+
+/* ── Viñeta CRT en los bordes ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0,0,0,0.6) 100%);
+  pointer-events: none;
+  z-index: 999;
+}
+
+@keyframes scanMove {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 -8px; }
+}
+
+/* ── Contenedor principal ── */
+#terminal {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  position: relative;
+}
+
+/* ── Barra de título ── */
+.header {
+  border-bottom: 1px solid var(--green-dim);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.5s forwards 0.2s;
+}
+
+.header-dots { display: flex; gap: 6px; }
+
+.dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--green-dim);
+}
+
+.header-title {
+  font-family: var(--font-retro);
+  font-size: 1.1rem;
+  color: var(--green-dim);
+  letter-spacing: 2px;
+}
+
+@keyframes fadeIn { to { opacity: 1; } }
+
+/* ── Línea genérica de output ── */
+.line {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--green);
+  text-shadow: 0 0 8px rgba(0,255,65,0.6);
+  white-space: pre;
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.line.visible { opacity: 1; }
+
+/* Variantes */
+.line.dim       { color: var(--green-dim); text-shadow: 0 0 4px rgba(0,200,50,0.3); }
+.line.success   { color: #33ff77; }
+.line.error-line{ color: var(--red-err); text-shadow: 0 0 8px rgba(255,68,68,0.5); }
+.line.accent    { color: var(--cyan); text-shadow: 0 0 10px rgba(0,255,170,0.5); }
+
+.line.final {
+  font-family: var(--font-retro);
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: var(--final-color);
+  text-shadow: 0 0 12px rgba(170,255,200,0.6);
+}
+
+.line.big-prompt {
+  font-family: var(--font-retro);
+  font-size: 1.6rem;
+  color: var(--green);
+  text-shadow: 0 0 12px rgba(0,255,65,0.7);
+}
+
+/* ── Espaciador ── */
+.section-gap { height: 0.8rem; opacity: 1; }
+
+/* ── ASCII art ── */
+#ascii-container {
+  font-size: 0.28rem;
+  line-height: 1.1;
+  letter-spacing: 0.05em;
+  white-space: pre;
+  color: var(--green);
+  text-shadow: 0 0 3px rgba(0,255,65,0.4);
+  font-family: var(--font-mono);
+  margin: 1rem 0;
+  opacity: 0;
+  transform: scaleX(0.82);
+  transform-origin: left;
+  overflow: hidden;
+  transition: opacity 0.3s;
+}
+#ascii-container.visible { opacity: 1; }
+
+/* ── Cursor parpadeante ── */
+.cursor {
+  display: inline-block;
+  width: 8px; height: 14px;
+  background: var(--green);
+  animation: blink 1s step-end infinite;
+  vertical-align: middle;
+  box-shadow: 0 0 8px rgba(0,255,65,0.8);
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Divisor ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--green-dark);
+  margin: 1rem 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.divider.visible { opacity: 1; }
+
+/* ── Bloque de estado ── */
+.status-block {
+  border: 1px solid var(--green-dark);
+  padding: 0.75rem 1rem;
+  margin: 0.5rem 0;
+  background: rgba(0,255,65,0.03);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.status-block.visible { opacity: 1; }
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  padding: 0.15rem 0;
+  color: var(--green);
+  text-shadow: 0 0 6px rgba(0,255,65,0.4);
+}
+.status-key { color: var(--green-dim); }
+
+/* ── Responsive móvil ── */
+@media (max-width: 600px) {
+  #ascii-container { font-size: 0.19rem; letter-spacing: 0.02em; transform: scaleX(0.75); }
+  .line            { font-size: 0.78rem; }
+  .line.big-prompt { font-size: 1.3rem; }
+  .line.final      { font-size: 1.15rem; }
+}
+
+
+/* ════════════════════════════════════════════
+   PANTALLA DE INICIO (start overlay)
+   Necesaria para desbloquear AudioContext
+   ════════════════════════════════════════════ */
+
+#start-overlay {
+  position: fixed;
+  inset: 0;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Scanlines también en el overlay */
+#start-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.35) 2px,
+    rgba(0,0,0,0.35) 4px
+  );
+  pointer-events: none;
+}
+
+.start-box {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.start-title {
+  font-family: 'VT323', 'Courier New', monospace;
+  font-size: 3rem;
+  color: #00ff41;
+  text-shadow: 0 0 20px rgba(0,255,65,0.7), 0 0 40px rgba(0,255,65,0.3);
+  letter-spacing: 4px;
+  animation: glitch 4s infinite;
+}
+
+.start-version {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 0.75rem;
+  color: #00c032;
+  letter-spacing: 3px;
+}
+
+.start-prompt {
+  font-family: 'Share Tech Mono', 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #00ff41;
+  letter-spacing: 2px;
+  margin-top: 1.5rem;
+  animation: promptBlink 1.2s step-end infinite;
+}
+
+@keyframes promptBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* Glitch sutil en el título */
+@keyframes glitch {
+  0%, 90%, 100% {
+    text-shadow: 0 0 20px rgba(0,255,65,0.7), 0 0 40px rgba(0,255,65,0.3);
+    transform: none;
+  }
+  91% {
+    text-shadow: -2px 0 #ff004c, 2px 0 #00ffcc;
+    transform: translateX(2px);
+  }
+  92% {
+    text-shadow: 2px 0 #ff004c, -2px 0 #00ffcc;
+    transform: translateX(-2px);
+  }
+  93% {
+    text-shadow: 0 0 20px rgba(0,255,65,0.7);
+    transform: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .start-title { font-size: 2rem; letter-spacing: 2px; }
+  .start-prompt { font-size: 0.7rem; }
+}
